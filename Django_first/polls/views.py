@@ -2,6 +2,8 @@ from django.db.models import F
 from django.urls import reverse
 from django.views import generic
 from django.http import HttpResponseRedirect
+from .models import Question, Choice
+from django.shortcuts import render, get_object_or_404
 
 # 메인 페이지 (질문 목록)
 class IndexView(generic.ListView):
@@ -42,3 +44,16 @@ def vote(request, question_id):
         selected_choice.votes = F("votes") + 1
         selected_choice.save()
         return HttpResponseRedirect(reverse("polls:results", args=(question.id,)))
+from django.urls import reverse_lazy
+
+class QuestionCreateView(generic.CreateView):
+    model = Question
+    fields = ["question_text","pub_date"]
+    template_name = "polls/question_form.html"
+    success_url = reverse_lazy("polls:index")
+    
+
+class QuestionUpdateView(generic.UpdateView):
+    pass
+class QuestionDeleteView(generic.DeleteView):
+    pass

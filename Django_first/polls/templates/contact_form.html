@@ -1,0 +1,8 @@
+<h2>연락처 입력</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}  
+    <!-- 여기서 위에서 지정한 fields가 폼 필드로 자동 출력됨 -->
+    
+    <button type="submit">저장</button>
+</form>

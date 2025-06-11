@@ -1,0 +1,28 @@
+Metadata-Version: 2.4
+Name: django-polls
+Version: 0.1
+Summary: A Django app to conduct web-based polls.
+Author-email: Your Name <you@example.com>
+Project-URL: Homepage, https://example.com/
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.10
+Requires-Python: >=3.10
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+Requires-Dist: django>=5.0
+Dynamic: license-file
+
+============
+django-polls
+============
+
+django-polls is a Django app to conduct web-based polls.
+
+Quick start
+-----------
+
+1. Add "django_polls" to INSTALLED_APPS
+2. Include the polls URLs in urls.py
+3. Run migrations
+4. Visit /polls/ to participate

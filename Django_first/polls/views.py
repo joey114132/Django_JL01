@@ -5,6 +5,7 @@ from django.http import HttpResponseRedirect
 from .models import Question, Choice
 from django.shortcuts import render, get_object_or_404
 from django.utils import timezone
+from django.db.models import Count
 
 class IndexView(generic.ListView):
     template_name = "polls/index.html"
@@ -78,3 +79,6 @@ def get_queryset(self):
             "-pub_date"
         )[:5]
 
+def question_list(request):
+    questions = Question.objects.annotate(num_choices=Count('choice'))
+    return render(request, 'polls/question_list.html', {'questions': questions})
